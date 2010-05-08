@@ -17,4 +17,4 @@ git push git@github.com:mediawiki/mediawiki-svn.git refs/remotes/*:refs/heads/*
 cd $MIRROR/mediawiki-trunk-phase3
 git svn fetch
 git svn rebase
-git push git@github.com:mediawiki/mediawiki-trunk-phase3.git refs/remotes/*:refs/heads/*
+git push git@github.com:mediawiki/mediawiki-trunk-phase3.git master
