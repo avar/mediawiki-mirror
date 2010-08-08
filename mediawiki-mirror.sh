@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Exit on errors
+trap 'fail' ERR
+fail () {
+    code=$?
+    echo "Failed with exit code $code"
+    exit 1
+}
+
 MIRROR=/var/lib/mediawiki-mirror
 
 ## Update the pushmi mirror
