@@ -15,12 +15,15 @@ cd $MIRROR
 for dir in *
 do
     (
+        cd $dir
+        git svn fetch
+        git svn rebase
 
         if test $dir = "mediawiki-svn"
         then
-            git push git@github.com:mediawiki/$dir.git refs/remotes/*:refs/heads/*
+            sudo -u mediawiki-mirror -s -H git push git@github.com:mediawiki/$dir.git refs/remotes/*:refs/heads/*
         else
-            git push git@github.com:mediawiki/$dir.git master        
+            sudo -u mediawiki-mirror -s -H git push git@github.com:mediawiki/$dir.git master
         fi
     )
 done
