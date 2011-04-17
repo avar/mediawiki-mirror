@@ -19,11 +19,14 @@ do
         git svn fetch
         git svn rebase
 
-        if test $dir = "mediawiki-svn"
-        then
-            sudo -u mediawiki-mirror -s -H git push git@github.com:mediawiki/$dir.git refs/remotes/*:refs/heads/*
-        else
-            sudo -u mediawiki-mirror -s -H git push git@github.com:mediawiki/$dir.git master
-        fi
+        for url in git@github.com:mediawiki/$dir.git git@gitorious.org:mediawiki/$dir.git
+        do
+            if test $dir = "mediawiki-svn"
+            then
+                sudo -u mediawiki-mirror -s -H git push $url refs/remotes/*:refs/heads/*
+            else
+                sudo -u mediawiki-mirror -s -H git push $url master
+            fi
+        done
     )
 done
