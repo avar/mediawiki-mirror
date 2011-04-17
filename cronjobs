@@ -1,0 +1,6 @@
+# OpenStreetMap mirrors
+
+PATH=/home/v-perlbrew/perl5/perlbrew/bin:/home/v-perlbrew/perl5/perlbrew/perls/current/bin:/bin:/usr/bin
+
+# Git repositories
+*/10 * * * *  avar nice -n 15 ionice -c 2 -n 6 cronjob -E -r mediawiki-mirror -j mediawiki-mirror -c '/etc/mediawiki-mirror/mediawiki-mirror.sh'
